@@ -17,12 +17,12 @@ services:
       - /Users/rpingielski/work/git/private/Udemy/run-devops/Shopping/Shopping.Client:/app
       - /Users/rpingielski/work/git/private/Udemy/run-devops/Shopping:/src
       - /Users/rpingielski/vsdbg/vs2017u5:/remote_debugger:rw
-
+      - /Users/rpingielski/.nuget/packages/:/root/.nuget/packages:ro
 
     entrypoint: tail -f /dev/null
     labels:
       com.microsoft.visualstudio.debuggee.program: "dotnet"
-      com.microsoft.visualstudio.debuggee.arguments: "  \"/app/bin/Release/net6.0/Shopping.Client.dll\""
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/net6.0/Shopping.Client.dll\""
       com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
       com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
     tty: true
