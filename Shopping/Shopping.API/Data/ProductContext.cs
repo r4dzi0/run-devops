@@ -77,7 +77,6 @@ namespace Shopping.API.Data
                     ImageFile="product-6.png",
                     Price=240.00M,
                     Category = "Home Kitchen"
-                    //
                 }
             };
         }
